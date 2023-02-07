@@ -1,16 +1,22 @@
 import styled from "styled-components";
 
 interface Props {
-  theme: string;
+  bgColor?: string;
+  txtColor?: string;
+  disabled?: boolean;
 }
 
 const Button = styled.button`
   border: none;
-  width: 120px;
+  min-width: 120px;
+  padding: 5px 10px;
   height: 30px;
   border-radius: 5px;
-  background-color: var(${(props: Props) => (props.theme === "red" ? "--accent-color" : "--color-type-04")});
-  color: ${(props: Props) => (props.theme === "red" ? "white" : "black")};
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: var(${(props: Props) => (props.disabled ? "#88304E" : props.bgColor)});
+  color: ${(props: Props) => (props.disabled ? "#555555" : props.txtColor)};
   font-size: 2rem;
   cursor: pointer;
 `;
