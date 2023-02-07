@@ -15,8 +15,8 @@ const Button = styled.button`
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: var(${(props: Props) => (props.disabled ? "#88304E" : props.bgColor)});
-  color: ${(props: Props) => (props.disabled ? "#555555" : props.txtColor)};
+  background-color: ${(props: Props) => (props.disabled ? "#aaa" : `var(${props.bgColor})`)};
+  color: ${(props: Props) => (props.disabled ? `#444` : props.txtColor)};
   font-size: 2rem;
   cursor: pointer;
 `;
