@@ -1,4 +1,4 @@
-import Button from "../../components/common/Button/Button";
+import LoginForm from "../../components/auth/LoginForm/LoginForm";
 import { S } from "./style";
 
 export default function SignIn() {
@@ -6,13 +6,8 @@ export default function SignIn() {
     <main>
       <h1 className="ir-hidden">로그인 페이지</h1>
       <S.Container>
-        <S.Title>로그인 폼</S.Title>
-        <S.FormContainer>
-          <input type="text" placeholder="이메일" />
-          <input type="text" placeholder="패스워드" />
-          <Button theme="red">로그인</Button>
-          <Button>회원가입</Button>
-        </S.FormContainer>
+        <S.Title>로그인</S.Title>
+        <LoginForm />
       </S.Container>
     </main>
   );
