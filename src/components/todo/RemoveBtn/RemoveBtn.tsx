@@ -1,9 +1,25 @@
+import { useCallback } from "react";
 import removeIcon from "../../../assets/icon/icon-remove.svg";
+import todoApi from "../../../services/api/todo";
 import { S } from "./style";
 
-export default function RemoveBtn({ onClick }: { onClick?: () => void }) {
+interface Props {
+  id: number;
+  getTodos: () => Promise<void>;
+}
+
+export default function RemoveBtn({ id, getTodos }: Props) {
+  const handleDelete = useCallback(
+    async (todoId: number) => {
+      await todoApi.deleteTodo(todoId);
+
+      getTodos();
+    },
+    [getTodos]
+  );
+
   return (
-    <S.Button onClick={onClick} data-testid="delete-button">
+    <S.Button onClick={() => handleDelete(id)} data-testid="delete-button">
       <img src={removeIcon} alt="삭제 버튼" />
     </S.Button>
   );

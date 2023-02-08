@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 const Container = styled.ul`
   height: 100%;
-  max-height: 700px;
+  max-height: 630px;
   overflow-y: auto;
 `;
 const TodoItem = styled.li`
