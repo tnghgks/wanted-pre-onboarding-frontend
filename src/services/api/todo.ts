@@ -26,9 +26,23 @@ const getTodos = async () => {
   }
 };
 
+const deleteTodo = async (TodoId: number) => {
+  try {
+    const response = await axiosAuthInstance.delete(`/todos/${TodoId}`);
+
+    return response;
+  } catch (error) {
+    if (error instanceof AxiosError) {
+      return error.response;
+    }
+    console.log(error);
+  }
+};
+
 const todoApi = {
   createTodo,
   getTodos,
+  deleteTodo,
 };
 
 export default todoApi;
