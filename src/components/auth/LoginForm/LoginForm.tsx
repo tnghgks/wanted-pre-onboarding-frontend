@@ -1,5 +1,5 @@
 import { useCallback, useMemo } from "react";
-import useInput from "../../../hook/common/useInput";
+import useInput from "../../../hooks/common/useInput";
 import Button from "../../common/Button/Button";
 import { validator } from "../../../util/validator";
 import { S } from "./style";
@@ -8,7 +8,7 @@ import Input from "../../common/Input/Input";
 export default function LoginForm() {
   const [email, isValidEmail] = useInput("", validator.email);
   const [password, isValidPw] = useInput("", validator.password);
-  const isDisabled = useMemo(() => ![isValidEmail.value, isValidPw.value].every((valid) => valid), [isValidEmail, isValidPw]);
+  const isDisabled = useMemo(() => ![isValidEmail.value, isValidPw.value].every((valid) => valid), [isValidEmail.value, isValidPw.value]);
 
   const handleSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
