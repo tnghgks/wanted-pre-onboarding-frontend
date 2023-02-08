@@ -19,6 +19,7 @@ export default function Router() {
         />
         <Route path="/signin" element={<SignIn />} />
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/*" element={<Navigate to="/todo" />} />
       </Routes>
     </BrowserRouter>
   );
