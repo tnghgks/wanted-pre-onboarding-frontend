@@ -4,9 +4,10 @@ import reset from "styled-reset";
 const GlobalStyle = createGlobalStyle`
 ${reset}
 
+// 교보손글씨
 @font-face {
-    font-family: 'KyoboHandwriting2021sjy';
-    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2212@1.0/KyoboHandwriting2021sjy.woff2') format('woff2');
+    font-family: 'KyoboHand';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-04@1.0/KyoboHand.woff') format('woff');
     font-weight: normal;
     font-style: normal;
 }
