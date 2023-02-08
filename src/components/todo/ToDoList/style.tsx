@@ -2,6 +2,8 @@ import styled from "styled-components";
 
 const Container = styled.ul`
   height: 100%;
+  max-height: 700px;
+  overflow-y: auto;
 `;
 const TodoItem = styled.li`
   display: flex;
@@ -13,6 +15,7 @@ const TodoItem = styled.li`
   padding-bottom: 5px;
   justify-content: space-between;
   align-items: center;
+
   label {
     display: flex;
     flex-basis: auto;
