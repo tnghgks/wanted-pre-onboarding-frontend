@@ -4,7 +4,11 @@ import iconEnter from "../../../assets/icon/icon-enter.svg";
 import todoApi from "../../../services/api/todo";
 import useInput from "../../../hooks/common/useInput";
 
-export default function TodoInput() {
+interface Props {
+  getTodos: () => Promise<void>;
+}
+
+export default function TodoInput({ getTodos }: Props) {
   const [todo] = useInput("");
 
   const handleSubmit = useCallback(
@@ -13,11 +17,13 @@ export default function TodoInput() {
 
       const response = await todoApi.createTodo(todo.value);
 
-      if (response?.status) {
+      getTodos();
+
+      if (response?.status === 400) {
         alert("투두를 입력해주세요.");
       }
     },
-    [todo.value]
+    [todo.value, getTodos]
   );
 
   return (
