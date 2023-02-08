@@ -23,7 +23,7 @@ export default function ToDoList({ isLoading, todos, getTodos }: Props) {
             </label>
             <S.ButtonContainer>
               <ModifyBtn />
-              <RemoveBtn />
+              <RemoveBtn id={item.id} getTodos={getTodos} />
             </S.ButtonContainer>
           </S.TodoItem>
         ))
