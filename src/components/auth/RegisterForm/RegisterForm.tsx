@@ -1,5 +1,7 @@
 import { useMemo, useCallback, useState } from "react";
-import useInput from "../../../hook/common/useInput";
+import { useNavigate } from "react-router-dom";
+import useInput from "../../../hooks/common/useInput";
+import authApi from "../../../services/api/auth";
 import { validator, ValidationError } from "../../../util/validator";
 import Button from "../../common/Button/Button";
 import ErrorMessage from "../../common/ErrorMessage/ErrorMessage";
@@ -7,21 +9,34 @@ import Input from "../../common/Input/Input";
 import { S } from "./style";
 
 export default function RegisterForm() {
+  const navigate = useNavigate();
   const [email, isValidEmail] = useInput("", validator.email);
   const [password, isValidPw] = useInput("", validator.password);
   const [passwordCheck, isValidPwCheck] = useInput("", validator.password);
   const [error, setError] = useState("");
-  const isDisabled = useMemo(() => ![isValidEmail, isValidPw, isValidPwCheck].every((valid) => valid), [isValidEmail, isValidPw, isValidPwCheck]);
+  const isDisabled = useMemo(
+    () => ![isValidEmail.value, isValidPw.value, isValidPwCheck.value].every((valid) => valid),
+    [isValidEmail.value, isValidPw.value, isValidPwCheck.value]
+  );
 
   const handleSubmit = useCallback(
-    (e: React.FormEvent<HTMLFormElement>) => {
+    async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
+
       if (password.value !== passwordCheck.value) {
         return setError(ValidationError.PASSWORD_CHECK_ERROR);
       }
-      setError("");
+
+      const res = await authApi.signUp({ email: email.value, password: password.value });
+
+      if (res?.status === 400) {
+        return setError(res.data.message);
+      }
+      if (res?.status === 201) {
+        return navigate("/signin");
+      }
     },
-    [password.value, passwordCheck.value]
+    [email.value, password.value, passwordCheck.value, navigate]
   );
 
   return (
@@ -50,7 +65,7 @@ export default function RegisterForm() {
         label="패스워드 확인"
         id="passwordCheck"
         type="password"
-        placeholder="패스워드와 동일하게 작성해주세요."
+        placeholder="패스워드와 동일하게 입력해주세요."
         required
         {...passwordCheck}
         error={isValidPwCheck.message}
