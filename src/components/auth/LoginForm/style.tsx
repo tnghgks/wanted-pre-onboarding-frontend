@@ -9,6 +9,7 @@ const FormContainer = styled.form`
   padding-bottom: 20px;
 
   button {
+    margin-top: 10px;
     margin-bottom: 10px;
   }
 `;
