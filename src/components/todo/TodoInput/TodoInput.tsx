@@ -28,7 +28,7 @@ export default function TodoInput({ getTodos }: Props) {
 
   return (
     <S.Container onSubmit={handleSubmit}>
-      <S.Button data-testid="new-todo-add-button">
+      <S.Button data-testid="new-todo-add-button" type="submit">
         <img src={iconEnter} alt="입력 버튼" />
       </S.Button>
       <S.Input type="text" data-testid="new-todo-input" {...todo} />
