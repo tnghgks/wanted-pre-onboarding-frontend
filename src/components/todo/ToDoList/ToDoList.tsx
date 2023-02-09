@@ -1,4 +1,5 @@
 import { Todo } from "../../../types/todo";
+import CheckBox from "../CheckBox/CheckBox";
 import ModifyBtn from "../ModifyBtn/ModifyBtn";
 import RemoveBtn from "../RemoveBtn/RemoveBtn";
 import { S } from "./style";
@@ -18,7 +19,7 @@ export default function ToDoList({ isLoading, todos, getTodos }: Props) {
         todos.map((item: Todo) => (
           <S.TodoItem key={item.id}>
             <label>
-              <input type="checkbox" checked={item.isCompleted} />
+              <CheckBox id={item.id} todo={item.todo} isCompleted={item.isCompleted} />
               <S.TodoText>{item.todo}</S.TodoText>
             </label>
             <S.ButtonContainer>
