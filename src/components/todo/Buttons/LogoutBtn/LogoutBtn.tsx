@@ -1,4 +1,4 @@
-import logoutIcon from "../../../assets/icon/icon-logout.svg";
+import logoutIcon from "../../../../assets/icon/icon-logout.svg";
 import { S } from "./style";
 
 export default function LogoutBtn({ onClick }: { onClick?: () => void }) {

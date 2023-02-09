@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import LogoutBtn from "../../components/todo/LogoutBtn/LogoutBtn";
+import LogoutBtn from "../../components/todo/Buttons/LogoutBtn/LogoutBtn";
 import TodoInput from "../../components/todo/TodoInput/TodoInput";
 import ToDoList from "../../components/todo/ToDoList/ToDoList";
 import useGetTodo from "../../hooks/todo/useGetTodo";

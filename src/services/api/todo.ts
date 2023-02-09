@@ -46,7 +46,7 @@ const updateTodo = async (TodoId: number, todo: string, isCompleted: boolean) =>
       isCompleted,
     });
 
-    return response;
+    return response.data;
   } catch (error) {
     if (error instanceof AxiosError) {
       return error.response;

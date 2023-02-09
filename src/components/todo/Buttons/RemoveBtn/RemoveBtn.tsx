@@ -1,6 +1,6 @@
 import { useCallback } from "react";
-import removeIcon from "../../../assets/icon/icon-remove.svg";
-import todoApi from "../../../services/api/todo";
+import removeIcon from "../../../../assets/icon/icon-remove.svg";
+import todoApi from "../../../../services/api/todo";
 import { S } from "./style";
 
 interface Props {
@@ -19,7 +19,7 @@ export default function RemoveBtn({ id, getTodos }: Props) {
   );
 
   return (
-    <S.Button onClick={() => handleDelete(id)} data-testid="delete-button">
+    <S.Button onClick={() => handleDelete(id)} data-testid="delete-button" type="button">
       <img src={removeIcon} alt="삭제 버튼" />
     </S.Button>
   );
