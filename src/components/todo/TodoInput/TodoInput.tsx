@@ -25,7 +25,7 @@ export default function TodoInput({ getTodos }: Props) {
         alert("투두를 입력해주세요.");
       }
     },
-    [todo.value, getTodos]
+    [getTodos, todo]
   );
 
   return (
