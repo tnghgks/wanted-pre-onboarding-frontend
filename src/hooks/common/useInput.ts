@@ -1,13 +1,23 @@
 import React, { useRef, useState } from "react";
 
-type Return = [{ value: string; onChange: (e: React.ChangeEvent<HTMLInputElement>) => void }, ValidatorReturn];
+type Return = [
+  {
+    value: string;
+    onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    setValue: React.Dispatch<React.SetStateAction<string>>;
+  },
+  ValidatorReturn
+];
 
 type ValidatorReturn = {
   value: boolean;
   message?: string;
 };
 
-export default function useInput(initValue: string, validator?: (value: string) => ValidatorReturn): Return {
+export default function useInput(
+  initValue: string,
+  validator?: (value: string) => ValidatorReturn
+): Return {
   const [value, setValue] = useState(initValue);
   const result = useRef<ValidatorReturn>({ value: false });
 
@@ -21,5 +31,5 @@ export default function useInput(initValue: string, validator?: (value: string) 
     setValue(value);
   };
 
-  return [{ value, onChange }, result.current];
+  return [{ value, onChange, setValue }, result.current];
 }
