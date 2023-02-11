@@ -1,4 +1,5 @@
 import { AxiosError } from "axios";
+import { notify } from "../../util/toast";
 import { axiosAuthInstance } from "./client";
 
 const createTodo = async (todo: string) => {
@@ -8,6 +9,7 @@ const createTodo = async (todo: string) => {
     return response;
   } catch (error) {
     if (error instanceof AxiosError) {
+      notify(error.response?.data.message);
       return error.response;
     }
     console.log(error);
@@ -20,6 +22,7 @@ const getTodos = async () => {
     return data;
   } catch (error) {
     if (error instanceof AxiosError) {
+      notify(error.response?.data.message);
       return error.response;
     }
     console.log(error);
@@ -33,6 +36,7 @@ const deleteTodo = async (TodoId: number) => {
     return response;
   } catch (error) {
     if (error instanceof AxiosError) {
+      notify(error.response?.data.message);
       return error.response;
     }
     console.log(error);
@@ -49,6 +53,7 @@ const updateTodo = async (TodoId: number, todo: string, isCompleted: boolean) =>
     return response.data;
   } catch (error) {
     if (error instanceof AxiosError) {
+      notify(error.response?.data.message);
       return error.response;
     }
     console.log(error);
