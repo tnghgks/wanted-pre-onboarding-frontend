@@ -28,6 +28,14 @@
 
 </div>
 
+# 💎 기술스택
+
+- react
+- typescript
+- styled-component
+- react-toastify
+- axios
+
 # 🗂 폴더구조
 
 ```
