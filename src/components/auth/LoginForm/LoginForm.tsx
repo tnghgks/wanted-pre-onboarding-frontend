@@ -13,7 +13,10 @@ export default function LoginForm() {
   const [email, isValidEmail] = useInput("", validator.email);
   const [password, isValidPw] = useInput("", validator.password);
   const [error, setError] = useState("");
-  const isDisabled = useMemo(() => ![isValidEmail.value, isValidPw.value].every((valid) => valid), [isValidEmail.value, isValidPw.value]);
+  const isDisabled = useMemo(
+    () => ![isValidEmail.value, isValidPw.value].every((valid) => valid),
+    [isValidEmail.value, isValidPw.value]
+  );
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
@@ -41,6 +44,7 @@ export default function LoginForm() {
         placeholder="사용하실 이메일을 입력해주세요."
         data-testid="email-input"
         required
+        autoFocus
         {...email}
         error={isValidEmail.message}
       />
@@ -55,7 +59,12 @@ export default function LoginForm() {
         error={isValidPw.message}
       />
       <ErrorMessage>{error}</ErrorMessage>
-      <Button bgColor="--accent-color" txtColor="white" data-testid="signin-button" disabled={isDisabled}>
+      <Button
+        bgColor="--accent-color"
+        txtColor="white"
+        data-testid="signin-button"
+        disabled={isDisabled}
+      >
         로그인
       </Button>
       <S.RegisterLink to="/signup">회원가입 하러가기 ➡</S.RegisterLink>

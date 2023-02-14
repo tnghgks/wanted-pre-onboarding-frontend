@@ -29,7 +29,7 @@ export default function TodoInput() {
       <S.Button data-testid="new-todo-add-button" type="submit">
         <img src={iconEnter} alt="입력 버튼" />
       </S.Button>
-      <S.Input type="text" data-testid="new-todo-input" {...todo} />
+      <S.Input autoFocus type="text" data-testid="new-todo-input" {...todo} />
     </S.Container>
   );
 }
