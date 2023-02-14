@@ -1,29 +1,25 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import { S } from "./style";
 import iconEnter from "../../../assets/icon/icon-enter.svg";
 import todoApi from "../../../services/api/todo";
 import useInput from "../../../hooks/common/useInput";
+import { ToDoContext } from "../../../pages/Todo/Todo";
 
-interface Props {
-  getTodos: () => Promise<void>;
-}
-
-export default function TodoInput({ getTodos }: Props) {
+export default function TodoInput() {
+  const { getTodos } = useContext(ToDoContext);
   const [todo] = useInput("");
 
   const handleSubmit = useCallback(
     async (e: React.FormEvent<HTMLFormElement>) => {
       e.preventDefault();
 
-      const response = await todoApi.createTodo(todo.value);
-
-      getTodos();
-
-      todo.setValue("");
-
-      if (response?.status === 400) {
-        alert("투두를 입력해주세요.");
+      if (!todo.value) {
+        return alert("투두를 입력해주세요.");
       }
+
+      await todoApi.createTodo(todo.value);
+      getTodos();
+      todo.setValue("");
     },
     [getTodos, todo]
   );
