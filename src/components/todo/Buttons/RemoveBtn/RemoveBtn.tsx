@@ -1,14 +1,12 @@
-import { useCallback } from "react";
+import { useCallback, useContext } from "react";
 import removeIcon from "../../../../assets/icon/icon-remove.svg";
+import { ToDoContext } from "../../../../pages/Todo/Todo";
 import todoApi from "../../../../services/api/todo";
 import { S } from "./style";
 
-interface Props {
-  id: number;
-  getTodos: () => Promise<void>;
-}
+export default function RemoveBtn({ id }: { id: number }) {
+  const { getTodos } = useContext(ToDoContext);
 
-export default function RemoveBtn({ id, getTodos }: Props) {
   const handleDelete = useCallback(
     async (todoId: number) => {
       await todoApi.deleteTodo(todoId);

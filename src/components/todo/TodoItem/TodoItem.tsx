@@ -1,4 +1,5 @@
-import { useState, useCallback } from "react";
+import { useState, useCallback, useContext } from "react";
+import { ToDoContext } from "../../../pages/Todo/Todo";
 import todoApi from "../../../services/api/todo";
 import { Todo } from "../../../types/todo";
 import CancelBtn from "../Buttons/CancelBtn//CancelBtn";
@@ -7,16 +8,11 @@ import ModifyBtn from "../Buttons/ModifyBtn/ModifyBtn";
 import RemoveBtn from "../Buttons/RemoveBtn/RemoveBtn";
 import { S } from "./style";
 
-export default function TodoItem({
-  getTodos,
-  todo,
-}: {
-  getTodos: () => Promise<void>;
-  todo: Todo;
-}) {
+export default function TodoItem({ todo }: { todo: Todo }) {
   const [todoData, setTodoData] = useState(todo);
   const [isModify, setIsModify] = useState(false);
   const [isChecked, setIsChecked] = useState(todo.isCompleted);
+  const { getTodos } = useContext(ToDoContext);
 
   const handleChecked = useCallback(() => {
     setIsChecked((prev) => !prev);
@@ -64,7 +60,7 @@ export default function TodoItem({
           </label>
           <S.ButtonContainer>
             <ModifyBtn onClick={() => setIsModify((prev) => !prev)} />
-            <RemoveBtn id={todoData.id} getTodos={getTodos} />
+            <RemoveBtn id={todoData.id} />
           </S.ButtonContainer>
         </>
       )}

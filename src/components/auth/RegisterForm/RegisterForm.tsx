@@ -48,6 +48,7 @@ export default function RegisterForm() {
         placeholder="사용하실 이메일을 입력해주세요."
         data-testid="email-input"
         required
+        autoFocus
         {...email}
         error={isValidEmail.message}
       />
@@ -71,7 +72,12 @@ export default function RegisterForm() {
         error={isValidPwCheck.message}
       />
       <ErrorMessage>{error}</ErrorMessage>
-      <Button bgColor="--accent-color" txtColor="white" data-testid="signup-button" disabled={isDisabled}>
+      <Button
+        bgColor="--accent-color"
+        txtColor="white"
+        data-testid="signup-button"
+        disabled={isDisabled}
+      >
         회원가입
       </Button>
     </S.FormContainer>

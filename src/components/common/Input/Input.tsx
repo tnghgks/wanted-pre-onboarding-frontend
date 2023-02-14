@@ -9,6 +9,7 @@ interface Props {
   required: boolean;
   type: string;
   value: string;
+  autoFocus: boolean;
 }
 
 export default function Input({ id, label, error, ...rest }: Partial<Props>) {
