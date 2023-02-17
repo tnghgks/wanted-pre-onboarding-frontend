@@ -22,6 +22,7 @@ export default function TodoItem({ todo }: { todo: Todo }) {
 
   const handleUpdate = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    if (!window.confirm("정말 수정하시겠습니까?")) return;
 
     const {
       todoInput: { value },
