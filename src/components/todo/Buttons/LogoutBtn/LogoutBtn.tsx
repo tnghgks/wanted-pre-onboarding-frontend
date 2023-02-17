@@ -4,6 +4,8 @@ import { S } from "./style";
 
 export default function LogoutBtn() {
   const handleLogout = useCallback(() => {
+    if (!window.confirm("로그아웃하시겠습니까?")) return;
+
     localStorage.removeItem("token");
     window.location.href = "/login";
   }, []);
