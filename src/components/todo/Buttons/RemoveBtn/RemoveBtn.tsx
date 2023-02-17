@@ -9,8 +9,9 @@ export default function RemoveBtn({ id }: { id: number }) {
 
   const handleDelete = useCallback(
     async (todoId: number) => {
-      await todoApi.deleteTodo(todoId);
+      if (!window.confirm("정말 삭제하시겠습니까?")) return;
 
+      await todoApi.deleteTodo(todoId);
       getTodos();
     },
     [getTodos]
