@@ -1,9 +1,9 @@
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import LoginForm from "../../components/auth/LoginForm/LoginForm";
+import RegisterForm from "../../components/auth/RegisterForm";
 import { S } from "./style";
 
-export default function SignIn() {
+export default function SignUp() {
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -15,10 +15,10 @@ export default function SignIn() {
 
   return (
     <main>
-      <h1 className="ir-hidden">로그인 페이지</h1>
+      <h1 className="ir-hidden">회원가입 페이지</h1>
       <S.Container>
-        <S.Title>로그인</S.Title>
-        <LoginForm />
+        <S.Title>회원가입</S.Title>
+        <RegisterForm />
       </S.Container>
     </main>
   );

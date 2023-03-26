@@ -1,8 +1,8 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import ProtectedRoute from "../components/HOC/auth/ProtectedRoute";
-import SignIn from "../pages/SignIn/SignIn";
-import SignUp from "../pages/SignUp/SignUp";
-import Todo from "../pages/Todo/Todo";
+import SignIn from "../pages/SignIn";
+import SignUp from "../pages/SignUp";
+import Todo from "../pages/Todo";
 
 export default function Router() {
   return (

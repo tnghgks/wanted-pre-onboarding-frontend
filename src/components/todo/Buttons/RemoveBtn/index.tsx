@@ -1,6 +1,6 @@
 import { useCallback, useContext } from "react";
 import removeIcon from "../../../../assets/icon/icon-remove.svg";
-import { ToDoContext } from "../../../../pages/Todo/Todo";
+import { ToDoContext } from "../../../../pages/Todo";
 import todoApi from "../../../../services/api/todo";
 import { S } from "./style";
 

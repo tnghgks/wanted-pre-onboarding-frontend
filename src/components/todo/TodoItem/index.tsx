@@ -1,11 +1,11 @@
 import { useState, useCallback, useContext } from "react";
-import { ToDoContext } from "../../../pages/Todo/Todo";
+import { ToDoContext } from "../../../pages/Todo";
 import todoApi from "../../../services/api/todo";
 import { Todo } from "../../../types/todo";
-import CancelBtn from "../Buttons/CancelBtn//CancelBtn";
-import ConfirmBtn from "../Buttons/ConfirmBtn/ConfirmBtn";
-import ModifyBtn from "../Buttons/ModifyBtn/ModifyBtn";
-import RemoveBtn from "../Buttons/RemoveBtn/RemoveBtn";
+import CancelBtn from "../Buttons/CancelBtn";
+import ConfirmBtn from "../Buttons/ConfirmBtn";
+import ModifyBtn from "../Buttons/ModifyBtn";
+import RemoveBtn from "../Buttons/RemoveBtn";
 import { S } from "./style";
 
 export default function TodoItem({ todo }: { todo: Todo }) {

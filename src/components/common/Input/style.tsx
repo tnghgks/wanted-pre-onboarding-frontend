@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import ErrorMessage from "../ErrorMessage/ErrorMessage";
+import ErrorMessage from "../ErrorMessage";
 
 const Label = styled.label`
   align-self: flex-start;
