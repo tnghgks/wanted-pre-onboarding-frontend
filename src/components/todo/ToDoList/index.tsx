@@ -1,7 +1,7 @@
 import { useContext } from "react";
-import { ToDoContext } from "../../../pages/Todo/Todo";
+import { ToDoContext } from "../../../pages/Todo";
 import { Todo } from "../../../types/todo";
-import TodoItem from "../TodoItem/TodoItem";
+import TodoItem from "../TodoItem";
 import { S } from "./style";
 
 export default function ToDoList() {
@@ -11,7 +11,7 @@ export default function ToDoList() {
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        todos.map((todo: Todo) => <TodoItem key={todo.id} todo={todo} />)
+        todos?.map((todo: Todo) => <TodoItem key={todo.id} todo={todo} />)
       )}
     </S.Container>
   );
