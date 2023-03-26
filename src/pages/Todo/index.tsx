@@ -1,7 +1,7 @@
 import { useEffect, createContext, useMemo } from "react";
-import LogoutBtn from "../../components/todo/Buttons/LogoutBtn/LogoutBtn";
-import TodoInput from "../../components/todo/TodoInput/TodoInput";
-import ToDoList from "../../components/todo/ToDoList/ToDoList";
+import LogoutBtn from "../../components/todo/Buttons/LogoutBtn";
+import TodoInput from "../../components/todo/TodoInput";
+import ToDoList from "../../components/todo/ToDoList";
 import useGetTodo from "../../hooks/todo/useGetTodo";
 import { Todo } from "../../types/todo";
 import { S } from "./style";

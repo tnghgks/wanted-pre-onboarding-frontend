@@ -1,12 +1,12 @@
 import { useCallback, useMemo, useState } from "react";
 import useInput from "../../../hooks/common/useInput";
-import Button from "../../common/Button/Button";
+import Button from "../../common/Button";
 import { validator } from "../../../util/validator";
 import { S } from "./style";
-import Input from "../../common/Input/Input";
+import Input from "../../common/Input";
 import authApi from "../../../services/api/auth";
 import { useNavigate } from "react-router-dom";
-import ErrorMessage from "../../common/ErrorMessage/ErrorMessage";
+import ErrorMessage from "../../common/ErrorMessage";
 
 export default function LoginForm() {
   const navigate = useNavigate();

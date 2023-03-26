@@ -3,7 +3,7 @@ import { S } from "./style";
 import iconEnter from "../../../assets/icon/icon-enter.svg";
 import todoApi from "../../../services/api/todo";
 import useInput from "../../../hooks/common/useInput";
-import { ToDoContext } from "../../../pages/Todo/Todo";
+import { ToDoContext } from "../../../pages/Todo";
 
 export default function TodoInput() {
   const { getTodos } = useContext(ToDoContext);

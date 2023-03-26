@@ -3,9 +3,9 @@ import { useNavigate } from "react-router-dom";
 import useInput from "../../../hooks/common/useInput";
 import authApi from "../../../services/api/auth";
 import { validator, ValidationError } from "../../../util/validator";
-import Button from "../../common/Button/Button";
-import ErrorMessage from "../../common/ErrorMessage/ErrorMessage";
-import Input from "../../common/Input/Input";
+import Button from "../../common/Button";
+import ErrorMessage from "../../common/ErrorMessage";
+import Input from "../../common/Input";
 import { S } from "./style";
 
 export default function RegisterForm() {
